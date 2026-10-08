@@ -1,0 +1,19 @@
+
+DATABASE: basetoken_db 
+TABLE: base_token_txns (Table Data Import Wizard)
+
+
+Table: base_token_txns
+Columns:
+Transaction_Hash text 
+Status text 
+Method text 
+Block_No int 
+Date_Time (UTC) text 
+From_Address text 
+From_Nametag text 
+To_Address text 
+To_Nametag text 
+Amount double 
+Value (USD) double 
+Token text
