@@ -5,7 +5,7 @@ Analyzing Base token transactions to identify potential wallet drain behaviors a
 Database: basetoken_db
 Table: base_token_txns
 Focus: Risk / Wallet Drain Detection
-Source: Base Network token transaction snapshot from BaseScan / Base Mainnet explorer, downloaded on **October 8, 2026 (Snapshot: 2026-10-08 04:40:00 UTC). Dataset contains 500 transactions sampled for risk pattern analysis.
+Source: Base Network token transaction snapshot from BaseScan / Base Mainnet explorer, downloaded on October 8, 2026 (Snapshot: 2026-10-08 04:40:00 UTC). Dataset contains 500 transactions sampled for risk pattern analysis.
 
 ## 
 
@@ -24,15 +24,12 @@ Source: Base Network token transaction snapshot from BaseScan / Base Mainnet exp
 
 ## Files
 
-
-
 * README.md - project overview
 * base\_token\_txns.csv - sample 500 rows (real dataset snapshot from 2026-10-08, 04:40:00 UTC)
 * base\_token\_schema.txt
 * base\_network\_risk\_monitor.sql - 8 risk queries
 * results\_and\_summary.txt - summary of the case and recommendations
 * basescan.source.png - screenshot of data source from BaseScan
-
 
 ##
 
@@ -45,8 +42,6 @@ Source: Base Network token transaction snapshot from BaseScan / Base Mainnet exp
 5. Result Validation: Ran each query and checked Result Grid. (Used `ORDER BY Amount DESC` and `COUNT(DISTINCT)` to validate high-risk patterns).
 
 6. Documentation & Export: Exported result grids for key insights. Created summary for both project findings and workflow.
-
-
 
 ##
 
@@ -61,9 +56,7 @@ Source: Base Network token transaction snapshot from BaseScan / Base Mainnet exp
 * 3 coordinated bidirectional pairs with mutual zero-value exchanges.
 * 7 collection wallets receiving from 5+ unique senders. Top: `0x49858...b2652` with 10 unique sources and 19 incoming
 * All transactions in sample show Status = Success, top method is `Handle Ops` (27).
-
-
-
+* 
 For detailed information per query, see separate sheet: "results\_and\_summary.txt"
 
 Recommendation: Monitor burst threshold >=5/hr, large transfer >100k, zero-value probes, and collection wallet concentration as primary risk alerts. This is a neutral monitoring report, not confirmed malicious activity.
