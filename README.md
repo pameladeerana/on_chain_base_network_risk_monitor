@@ -2,10 +2,10 @@
 
 Analyzing Base token transactions to identify potential wallet drain behaviors and risk concentration patterns.
 
-**Database:** basetoken\_db
-**Table:** base\_token\_txns
-**Focus:** Risk / Wallet Drain Detection
-**Source:** Base Network token transaction snapshot from BaseScan / Base Mainnet explorer, downloaded on **October 8, 2026 (Snapshot: 2026-10-08 04:40:00 UTC)**. Dataset contains 500 transactions sampled for risk pattern analysis.
+Database: basetoken_db
+Table: base_token_txns
+Focus: Risk / Wallet Drain Detection
+Source: Base Network token transaction snapshot from BaseScan / Base Mainnet explorer, downloaded on **October 8, 2026 (Snapshot: 2026-10-08 04:40:00 UTC). Dataset contains 500 transactions sampled for risk pattern analysis.
 
 ## 
 
@@ -34,20 +34,21 @@ Analyzing Base token transactions to identify potential wallet drain behaviors a
 * basescan.source.png - screenshot of data source from BaseScan
 
 
+##
 
 ## Workflow
 
-1. **Downloaded Source Data:** Exported Base token transaction data from BaseScan public explorer (Base Mainnet). The page data was downloaded as multiple CSV exports on October 8, 2026 at 04:40 UTC.
-2. **File Cleaning:** All exported CSV files were filed and cleaned into one Excel workbook (WPS Office). The consolidated file was converted to CSV for SQL import.
-3. **Database Creation \& Import in MySQL Workbench:** Created a new database basetoken\_db in MySQL Workbench. Imported the cleaned CSV using Table Data Import Wizard.
-4. **Query Development:** Wrote 8 risk-focused SQL queries covering volume, burst behavior, large transfers, sweep patterns, dust transactions, coordinated pairs, collection wallets, and status breakdown. Each query was tested with `LIMIT` and validated via Result Grid.
-5. **Result Validation:** Ran each query and checked Result Grid. (Used `ORDER BY Amount DESC` and `COUNT(DISTINCT)` to validate high-risk patterns).
+1. Downloaded Source Data: Exported Base token transaction data from BaseScan public explorer (Base Mainnet). The page data was downloaded as multiple CSV exports on October 8, 2026 at 04:40 UTC.
+2. File Cleaning: All exported CSV files were filed and cleaned into one Excel workbook (WPS Office). The consolidated file was converted to CSV for SQL import.
+3. Database Creation \& Import in MySQL Workbench:** Created a new database basetoken\_db in MySQL Workbench. Imported the cleaned CSV using Table Data Import Wizard.
+4. Query Development: Wrote 8 risk-focused SQL queries covering volume, burst behavior, large transfers, sweep patterns, dust transactions, coordinated pairs, collection wallets, and status breakdown. Each query was tested with `LIMIT` and validated via Result Grid.
+5. Result Validation: Ran each query and checked Result Grid. (Used `ORDER BY Amount DESC` and `COUNT(DISTINCT)` to validate high-risk patterns).
 
-6\*\*. Documentation \& Export:\*\* Exported result grids for key insights. Created summary for both project findings and workflow.
-
-
+6. Documentation & Export: Exported result grids for key insights. Created summary for both project findings and workflow.
 
 
+
+##
 
 ## Key Insights (Summary)
 
@@ -67,11 +68,9 @@ For detailed information per query, see separate sheet: "results\_and\_summary.t
 
 Recommendation: Monitor burst threshold >=5/hr, large transfer >100k, zero-value probes, and collection wallet concentration as primary risk alerts. This is a neutral monitoring report, not confirmed malicious activity.
 
-
+##
 
 ## Tools
-
-
 
 * basescan.org/tokentxns?ps=100\&p=5
 * Excel / WPS Office
